@@ -44,7 +44,7 @@ namespace DoItWebsite
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/ToDoList/Error");
                 app.UseHsts();
             }
 
@@ -56,7 +56,7 @@ namespace DoItWebsite
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=ToDoList}/{action=Index}/{id?}");
             });
         }
     }
