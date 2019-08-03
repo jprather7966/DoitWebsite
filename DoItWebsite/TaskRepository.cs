@@ -40,5 +40,23 @@ namespace DoItWebsite
                 return tasks;
             }
         }
+        public void AddTaskToDatabase(TaskModel NewTask)
+        {
+            MySqlConnection conn = new MySqlConnection();
+            conn.ConnectionString = System.IO.File.ReadAllText("ConnectionString.txt");
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "INSERT INTO tasks (TaskName) " +
+                              "VALUES (@TaskName);";
+            // parameterized query to prevent SQL injection
+            cmd.Parameters.AddWithValue("TaskName", NewTask.TaskName);
+            
+            using (conn)
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+        }
     }
 }

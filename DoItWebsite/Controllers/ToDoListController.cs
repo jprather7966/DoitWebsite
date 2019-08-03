@@ -15,5 +15,16 @@ namespace DoItWebsite.Controllers
             List<TaskModel> AllTasks = repo.GetAllTasks();
             return View(AllTasks);
         }
+        public IActionResult NewTask()
+        {
+            return View();
+        }
+
+        public IActionResult Add(TaskModel task)
+        {
+            TaskRepository repo = new TaskRepository();
+            repo.AddTaskToDatabase(task);
+            return RedirectToAction("Index", "ToDoList");
+        }
     }
 }

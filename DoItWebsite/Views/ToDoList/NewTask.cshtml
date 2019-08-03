@@ -1,0 +1,13 @@
+﻿@model TaskModel
+<h2>New Task:</h2>
+
+@using (Html.BeginForm("Add", "ToDoList", "Post"))
+{
+	<label asp-for="TaskName" class="control-label">Name:</label>
+	<br />
+	<input type="text" name="TaskName" class="form-control" value="" />
+	<br />
+	<input type="submit" name="Sumbit" value="Add Task" class="btn btn-default" />
+ }
+
+
