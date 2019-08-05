@@ -1,0 +1,17 @@
+﻿@model TaskModel
+
+
+@using (Html.BeginForm("Update", "ToDoList", "Post"))
+{
+	<input asp-for="Id" type="hidden" value="@Model.Id" />
+	<label asp-for="TaskName" class="control-label">Name:</label>
+	<br />
+	<input type="text" name="TaskName" class="form-control" value="" />
+	<br />
+	<label asp-for="CompletionID" class="control-label"> Status:</label>
+	<br />
+	<input type="number" name="CompletionID" class="form-control" value="@Model.CompletionID" />
+	<br />
+	<input type="submit" name="Sumbit" value="Update Task" class="btn btn-default" />
+}
+

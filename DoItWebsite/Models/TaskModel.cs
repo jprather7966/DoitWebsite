@@ -11,6 +11,7 @@ namespace DoItWebsite.Models
         public string TaskName { get; set; }
         public int CompletionID { get; set; }
         public string Status { get; set; }
+        
 
 
     }

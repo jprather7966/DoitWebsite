@@ -39,5 +39,17 @@ namespace DoItWebsite.Controllers
             return View("Task", Task);
 
         }
+        public IActionResult UpdateTask(int id)
+        {
+            TaskRepository repo = new TaskRepository();
+            TaskModel task = repo.GetTask(id);
+            return View(task);
+        }
+        public IActionResult Update(TaskModel task)
+        {
+            TaskRepository repo = new TaskRepository();
+            repo.UpdateTask(task);
+            return RedirectToAction("ViewTask", "TodoList", new { id = task.Id });
+        }
     }
 }

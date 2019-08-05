@@ -91,5 +91,25 @@ namespace DoItWebsite
 
             }
         }
+        public void UpdateTask(TaskModel task)
+        {
+            MySqlConnection conn = new MySqlConnection();
+            conn.ConnectionString = System.IO.File.ReadAllText("ConnectionString.txt");
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "UPDATE tasks " +
+                              "SET TaskName = @TaskName, CompletionID = @CompletionID  " +
+                              "WHERE TaskID = @id;";
+            // parameterized query to prevent SQL injection
+            cmd.Parameters.AddWithValue("TaskName", task.TaskName);
+            cmd.Parameters.AddWithValue("CompletionID", task.CompletionID);
+            cmd.Parameters.AddWithValue("id", task.Id);
+
+            using (conn)
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }
