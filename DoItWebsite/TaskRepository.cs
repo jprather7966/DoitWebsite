@@ -58,5 +58,38 @@ namespace DoItWebsite
             }
 
         }
+        public TaskModel GetTask(int id)
+        {
+            MySqlConnection conn = new MySqlConnection();
+            conn.ConnectionString = System.IO.File.ReadAllText("ConnectionString.txt");
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT TaskID, TaskName, CompletionID " +
+                              "FROM tasks " +
+                              "WHERE TaskID = @id;";
+            // parameterized query to prevent SQL injection
+            cmd.Parameters.AddWithValue("id", id);
+
+            using (conn)
+            {
+                conn.Open();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    TaskModel task = new TaskModel();
+
+                    task.Id = reader.GetInt32("TaskID");
+                    task.TaskName = reader.GetString("TaskName");
+                   
+                    return task;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+        }
     }
 }

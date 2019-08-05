@@ -10,5 +10,8 @@ namespace DoItWebsite.Models
         public int Id { get; set; }
         public string TaskName { get; set; }
         public int CompletionID { get; set; }
+        public string Status { get; set; }
+
+
     }
 }

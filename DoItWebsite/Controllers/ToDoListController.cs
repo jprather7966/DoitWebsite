@@ -26,5 +26,18 @@ namespace DoItWebsite.Controllers
             repo.AddTaskToDatabase(task);
             return RedirectToAction("Index", "ToDoList");
         }
+        public IActionResult ViewTask(int id)
+        {
+            TaskRepository repo = new TaskRepository();
+            TaskModel Task = repo.GetTask(id);
+
+
+            if (Task == null)
+            {
+                return View("TaskNotFound");
+            }
+            return View("Task", Task);
+
+        }
     }
 }
