@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using DoItWebsite.Models;
 using MySql.Data.MySqlClient;
 
@@ -9,11 +7,11 @@ namespace DoItWebsite
 {
     public class TaskRepository
     {
+        private string ConnectionString = System.IO.File.ReadAllText("ConnectionString.txt");
         public List<TaskModel> GetAllTasks()
         {
-            MySqlConnection conn = new MySqlConnection();
-            conn.ConnectionString = System.IO.File.ReadAllText("ConnectionString.txt");
-
+            MySqlConnection conn = new MySqlConnection(ConnectionString);
+            
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT TaskID, TaskName, Status FROM tasks;";
 
@@ -42,9 +40,8 @@ namespace DoItWebsite
         }
         public void AddTaskToDatabase(TaskModel NewTask)
         {
-            MySqlConnection conn = new MySqlConnection();
-            conn.ConnectionString = System.IO.File.ReadAllText("ConnectionString.txt");
-
+            MySqlConnection conn = new MySqlConnection(ConnectionString);
+            
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "INSERT INTO tasks (TaskName) " +
                               "VALUES (@TaskName);";
@@ -60,8 +57,7 @@ namespace DoItWebsite
         }
         public TaskModel GetTask(int id)
         {
-            MySqlConnection conn = new MySqlConnection();
-            conn.ConnectionString = System.IO.File.ReadAllText("ConnectionString.txt");
+            MySqlConnection conn = new MySqlConnection(ConnectionString);
 
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT TaskID, TaskName, Status " +
@@ -94,8 +90,7 @@ namespace DoItWebsite
         }
         public void UpdateTask(TaskModel task)
         {
-            MySqlConnection conn = new MySqlConnection();
-            conn.ConnectionString = System.IO.File.ReadAllText("ConnectionString.txt");
+            MySqlConnection conn = new MySqlConnection(ConnectionString);
 
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "UPDATE tasks " +
@@ -114,8 +109,7 @@ namespace DoItWebsite
         }
         public void DeleteTaskFromDatabase(int id)
         {
-            MySqlConnection conn = new MySqlConnection();
-            conn.ConnectionString = System.IO.File.ReadAllText("ConnectionString.txt");
+            MySqlConnection conn = new MySqlConnection(ConnectionString);
 
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "DELETE FROM tasks " +
