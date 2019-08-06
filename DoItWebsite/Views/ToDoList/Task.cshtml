@@ -1,15 +1,9 @@
 ﻿@model TaskModel
 
-@if (Model.Id == 1)
- {
-	Model.Status = "Not Completed";
- }
-else
-{
-	Model.Status = "Completed";
-}
+
+
 <h2>Name: @Model.TaskName</h2>
-<h3>Completion:@Model.Status </h3>
+<h3>Status:@Model.Status </h3>
 
 <div>
 	<a href="/TodoList/UpdateTask/@Model.Id"> Update This Task</a>

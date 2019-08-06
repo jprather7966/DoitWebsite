@@ -9,22 +9,14 @@
 <table border="1">
 	<tr>
 		<th>Name</th>
-		<th>Completed</th>
+		<th>Status</th>
 	</tr>
 	@foreach (TaskModel task in Model)
 	{
-		string status = "not set";
-		if (task.CompletionID == 1)
-		{
-			status = "Not Completed";
-		}
-		else
-		{
-			status = "Completed";
-		}
+		
 		<tr>
 			<td><a href="/ToDoList/ViewTask/@task.Id">@task.TaskName </a></td>
-			<td>@status</td>
+			<td>@task.Status</td>
 
 		</tr>
 	 }

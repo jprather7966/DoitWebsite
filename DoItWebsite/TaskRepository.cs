@@ -15,7 +15,7 @@ namespace DoItWebsite
             conn.ConnectionString = System.IO.File.ReadAllText("ConnectionString.txt");
 
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT TaskID, TaskName, CompletionID FROM tasks;";
+            cmd.CommandText = "SELECT TaskID, TaskName, Status FROM tasks;";
 
             using (conn)
             {
@@ -31,7 +31,7 @@ namespace DoItWebsite
 
                     NextTask.Id = reader.GetInt32("TaskID");
                     NextTask.TaskName = reader.GetString("TaskName");
-                    NextTask.CompletionID = reader.GetInt32("CompletionID");
+                    NextTask.Status= reader.GetString("Status");
 
 
                     tasks.Add(NextTask);
@@ -64,7 +64,7 @@ namespace DoItWebsite
             conn.ConnectionString = System.IO.File.ReadAllText("ConnectionString.txt");
 
             MySqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT TaskID, TaskName, CompletionID " +
+            cmd.CommandText = "SELECT TaskID, TaskName, Status " +
                               "FROM tasks " +
                               "WHERE TaskID = @id;";
             // parameterized query to prevent SQL injection
@@ -81,6 +81,7 @@ namespace DoItWebsite
 
                     task.Id = reader.GetInt32("TaskID");
                     task.TaskName = reader.GetString("TaskName");
+                    task.Status = reader.GetString("Status");
                    
                     return task;
                 }
@@ -98,11 +99,11 @@ namespace DoItWebsite
 
             MySqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = "UPDATE tasks " +
-                              "SET TaskName = @TaskName, CompletionID = @CompletionID  " +
+                              "SET TaskName = @TaskName, Status = @Status  " +
                               "WHERE TaskID = @id;";
             // parameterized query to prevent SQL injection
             cmd.Parameters.AddWithValue("TaskName", task.TaskName);
-            cmd.Parameters.AddWithValue("CompletionID", task.CompletionID);
+            cmd.Parameters.AddWithValue("Status", task.Status);
             cmd.Parameters.AddWithValue("id", task.Id);
 
             using (conn)
