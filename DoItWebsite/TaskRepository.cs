@@ -112,5 +112,23 @@ namespace DoItWebsite
                 cmd.ExecuteNonQuery();
             }
         }
+        public void DeleteTaskFromDatabase(int id)
+        {
+            MySqlConnection conn = new MySqlConnection();
+            conn.ConnectionString = System.IO.File.ReadAllText("ConnectionString.txt");
+
+            MySqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "DELETE FROM tasks " +
+                              "WHERE TaskID = @id";
+            // parameterized query to prevent SQL injection
+            cmd.Parameters.AddWithValue("id", id);
+
+            using (conn)
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+        }
     }
 }

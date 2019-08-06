@@ -51,5 +51,11 @@ namespace DoItWebsite.Controllers
             repo.UpdateTask(task);
             return RedirectToAction("ViewTask", "TodoList", new { id = task.Id });
         }
+        public IActionResult DeleteTask(int id)
+        {
+            TaskRepository repo = new TaskRepository();
+            repo.DeleteTaskFromDatabase(id);
+            return RedirectToAction("Index", "TodoList");
+        }
     }
 }
