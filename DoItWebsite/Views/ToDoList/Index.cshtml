@@ -2,24 +2,15 @@
 
 
 <div id="myDIV" class="header">
-	<h2>My To Do List</h2>
+	<h2>To Do List</h2>
+	<a href="/ToDoList/NewTask">Add New Task</a>
 </div>
 
-<a href="/ToDoList/NewTask">Add New Task</a>
-<table border="1">
-	<tr>
-		<th>Name</th>
-		<th>Status</th>
-	</tr>
+<ul id="myUL">
 	@foreach (TaskModel task in Model)
 	{
-		
-		<tr>
-			<td><a href="/ToDoList/ViewTask/@task.Id">@task.TaskName </a></td>
-			<td>@task.Status</td>
-
-		</tr>
-	 }
-</table>
+		<li><a href="/ToDoList/ViewTask/@task.Id">@task.TaskName </a></li>
+	}
+</ul>
 
 

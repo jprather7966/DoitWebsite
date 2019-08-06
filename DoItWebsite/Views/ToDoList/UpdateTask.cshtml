@@ -6,12 +6,14 @@
 	<input asp-for="Id" type="hidden" value="@Model.Id" />
 	<label asp-for="TaskName" class="control-label">Name:</label>
 	<br />
-	<input type="text" name="TaskName" class="form-control" value="" />
+	<input type="text" name="TaskName" class="form-control" value="@Model.TaskName" />
 	<br />
 	<label asp-for="Status" class="control-label"> Status:</label>
 	<br />
-	<input type="text" name="Status" class="form-control" value="" />
+	<label><input type="radio" name="Status" value="Not Completed" /> Not Completed </label>
 	<br />
-	<input type="submit" name="Sumbit" value="Update Task" class="btn btn-default" />
+	<label><input type="radio" name="Status" value="Completed" /> Completed </label>
+	<br />
+	<input type="submit" name="Submit" value="Update Task" class="btn btn-primary" />
 }
 

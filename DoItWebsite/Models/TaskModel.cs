@@ -8,10 +8,5 @@ namespace DoItWebsite.Models
         public string TaskName { get; set; }
         public string Status { get; set; }
 
-
-
-
-
-
     }
 }
