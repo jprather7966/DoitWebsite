@@ -1,5 +1,7 @@
 ﻿@model TaskModel
 
+<h2>Update Task</h2>
+
 
 @using (Html.BeginForm("Update", "ToDoList", "Post"))
 {
@@ -8,7 +10,7 @@
 	<br />
 	<input type="text" name="TaskName" class="form-control" value="@Model.TaskName" />
 	<br />
-	<label asp-for="Status" class="control-label"> Status:</label>
+	<label asp-for="Status" class="control-label"> Status: </label>
 	<br />
 	<label><input type="radio" name="Status" value="Not Completed" /> Not Completed </label>
 	<br />

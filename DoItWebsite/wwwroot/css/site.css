@@ -1,22 +1,115 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
-for details on configuring this project to bundle and minify static web assets. */
+﻿
+
+/* Include the padding and border in an element's total width and height */
 body {
 	padding-top: 50px;
 	padding-bottom: 20px;
+	background-image: url("../images/background.jpg");
+	background-position: center;
+	color: white
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 
 
 
+/* Remove margins and padding from the list */
+#Todo {
+	margin: 0;
+	padding: 0;
+}
+
+/* Style the list items */
+#Todo {
+	cursor: pointer;
+	position: relative;
+	padding: 12px 8px 12px 40px;
+	background: #eee;
+	font-size: 18px;
+	transition: 0.2s;
+	/* make the list items unselectable */
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	color: black;
+}
+
+	/* Set all odd list items to a different color (zebra-stripes) */
+	#Todo li:nth-child(odd) {
+		background: #f9f9f9;
+	}
+
+/* Darker background-color on hover */
+#Todo li:hover {
+	background: #ddd;
+}
 
 
 
+/* Style the close button */
+.close {
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 12px 16px 12px 16px;
+}
 
 
+
+/* Style the header */
+#myDIV {
+	background-color: #f44336;
+	padding: 30px 40px;
+	color: white;
+	text-align: center;
+}
+#myCOMP {
+	background-color: #00b359;
+	padding: 30px 40px;
+	color: white;
+	text-align: center;
+}
+
+/* Clear floats after the header 
+#myDIV {
+	content: "";
+	display: table;
+	clear: both;
+}
+*/
+
+/* Style the input */
+#myInput {
+	margin: 0;
+	border: none;
+	border-radius: 0;
+	width: 75%;
+	padding: 10px;
+	float: left;
+	font-size: 16px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+	padding: 10px;
+	width: 25%;
+	background: #d9d9d9;
+	color: #555;
+	float: left;
+	text-align: center;
+	font-size: 16px;
+	cursor: pointer;
+	transition: 0.3s;
+	border-radius: 0;
+}
+
+	.addBtn:hover {
+		background-color: #bbb;
+	}

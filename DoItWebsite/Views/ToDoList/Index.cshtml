@@ -1,16 +1,32 @@
 ﻿@model List<TaskModel>
 
 
-<div id="myDIV" class="header">
+<div id="myDIV">
 	<h2>To Do List</h2>
-	<a href="/ToDoList/NewTask">Add New Task</a>
 </div>
-
-<ul id="myUL">
+<main>
+	<ul id="Todo">
+		@foreach (TaskModel task in Model)
+		{
+			if (task.Status == "Not Completed")
+			{
+				<li><a href="/ToDoList/ViewTask/@task.Id">@task.TaskName </a></li>
+			}
+		}
+	</ul>
+</main>
+<div id="myCOMP">
+	<h2>Completed Tasks</h2>
+</div>
+<ul id="Todo">
 	@foreach (TaskModel task in Model)
 	{
-		<li><a href="/ToDoList/ViewTask/@task.Id">@task.TaskName </a></li>
+		if (task.Status == "Completed")
+		{
+			<li><a href="/ToDoList/ViewTask/@task.Id">@task.TaskName </a></li>
+		}
 	}
 </ul>
+
 
 

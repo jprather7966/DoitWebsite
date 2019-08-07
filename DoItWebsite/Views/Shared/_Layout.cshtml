@@ -29,9 +29,10 @@
                 <a asp-area="" asp-controller="ToDoList" asp-action="Index" class="navbar-brand">DoIt</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+				<ul class="nav navbar-nav">
 					<li><a asp-area="" asp-controller="ToDoList" asp-action="Index">To Do List</a></li>
-                </ul>
+					<li><a asp-area="" asp-controller="ToDoList" asp-action="NewTask">Add Task </a></li>
+				</ul>
             </div>
         </div>
     </nav>
@@ -40,10 +41,7 @@
 
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2019 - DoItWebsite</p>
-        </footer>
+        
     </div>
 
     <environment include="Development">
