@@ -5,9 +5,11 @@
 {
 	<label asp-for="TaskName" class="control-label">Name:</label>
 	<br />
-	<input type="text" name="TaskName" class="form-control" value="" />
+	<input type="text" name="TaskName" class="form-control" value="" id="myInput" />
 	<br />
-	<input type="submit" name="Submit" value="Add Task" class="btn btn-primary" />
+	<br/>
+	<input type="submit" name="Submit" class="btn btn-primary" onclick="return validateForm()" value ="Add Task"/>
+	
  }
 
 

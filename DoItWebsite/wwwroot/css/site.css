@@ -46,22 +46,10 @@ body {
 		background: #f9f9f9;
 	}
 
-/* Darker background-color on hover */
-#Todo li:hover {
-	background: #ddd;
-}
-
-
-
-/* Style the close button */
-.close {
-	position: absolute;
-	right: 0;
-	top: 0;
-	padding: 12px 16px 12px 16px;
-}
-
-
+	/* Darker background-color on hover */
+	#Todo li:hover {
+		background: #ddd;
+	}
 
 /* Style the header */
 #myDIV {
@@ -70,20 +58,13 @@ body {
 	color: white;
 	text-align: center;
 }
-#myCOMP {
+
+#myCOMPDIV {
 	background-color: #00b359;
 	padding: 30px 40px;
 	color: white;
 	text-align: center;
 }
-
-/* Clear floats after the header 
-#myDIV {
-	content: "";
-	display: table;
-	clear: both;
-}
-*/
 
 /* Style the input */
 #myInput {
@@ -95,21 +76,3 @@ body {
 	float: left;
 	font-size: 16px;
 }
-
-/* Style the "Add" button */
-.addBtn {
-	padding: 10px;
-	width: 25%;
-	background: #d9d9d9;
-	color: #555;
-	float: left;
-	text-align: center;
-	font-size: 16px;
-	cursor: pointer;
-	transition: 0.3s;
-	border-radius: 0;
-}
-
-	.addBtn:hover {
-		background-color: #bbb;
-	}
