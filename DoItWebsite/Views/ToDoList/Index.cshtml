@@ -1,32 +1,32 @@
 ﻿@model List<TaskModel>
 
-
-<div id="myDIV">
-	<h2>To Do List</h2>
-</div>
-<main>
+<div class="fadeIn">
+	<div id="myDIV">
+		<h2>To Do List</h2>
+	</div>
+	<main>
+		<ul id="Todo">
+			@foreach (TaskModel task in Model)
+			{
+				if (task.Status == "Not Completed")
+				{
+					<li><a href="/ToDoList/ViewTask/@task.Id">@task.TaskName </a></li>
+				}
+			}
+		</ul>
+	</main>
+	<div id="myCOMPDIV">
+		<h2>Completed Tasks</h2>
+	</div>
 	<ul id="Todo">
 		@foreach (TaskModel task in Model)
 		{
-			if (task.Status == "Not Completed")
+			if (task.Status == "Completed")
 			{
 				<li><a href="/ToDoList/ViewTask/@task.Id">@task.TaskName </a></li>
 			}
 		}
 	</ul>
-</main>
-<div id="myCOMPDIV">
-	<h2>Completed Tasks</h2>
+
 </div>
-<ul id="Todo">
-	@foreach (TaskModel task in Model)
-	{
-		if (task.Status == "Completed")
-		{
-			<li><a href="/ToDoList/ViewTask/@task.Id">@task.TaskName </a></li>
-		}
-	}
-</ul>
-
-
 
